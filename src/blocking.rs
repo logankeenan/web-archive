@@ -50,9 +50,7 @@ where
 
     // Initialise client
     let mut client = reqwest::blocking::Client::builder()
-        .use_native_tls()
-        .danger_accept_invalid_certs(options.accept_invalid_certificates)
-        .danger_accept_invalid_hostnames(options.accept_invalid_certificates);
+        .danger_accept_invalid_certs(options.accept_invalid_certificates);
     if let Some(proxy) = options.proxy {
         client = client.proxy(Proxy::all(proxy)?);
     }
